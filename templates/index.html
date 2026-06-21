@@ -1,0 +1,80 @@
+<!-- Include the common header layout (header.html) which contains the HTML declaration, head tags, CSS files, and navigation bar -->
+{% include "header.html" %}
+
+        <!-- Clean Blog Page Header Section representing the hero banner of the page -->
+        <header class="masthead" style="background-image: url('https://images.unsplash.com/photo-1470092306007-055b6797ca72?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80')">
+            
+            <!-- Grid container to center contents and control side padding across different screen sizes -->
+            <div class="container position-relative px-4 px-lg-5">
+                
+                <!-- Flexbox layout grid row centering its column contents horizontally -->
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    
+                    <!-- Responsive column definition mapping widths to various screen sizes (medium, large, extra large screens) -->
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        
+                        <!-- Site heading wrapper containing main title and subheading centered inside the hero banner -->
+                        <div class="site-heading">
+                            <!-- Main website title -->
+                            <h1>Clean Blog</h1>
+                            <!-- Site slogan or subheading description -->
+                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Body Content Section displaying the feed/grid of blog post previews -->
+        <div class="container px-4 px-lg-5">
+            
+            <!-- Row layout to center the main content column horizontally -->
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                
+                <!-- Column defining width constraints to match the clean, reader-friendly layout grid -->
+                <div class="col-md-10 col-lg-8 col-xl-7">
+
+                    <!-- Jinja2 loop iterating over every blog post dictionary inside the 'all_posts' collection passed from Flask -->
+                    {% for post in all_posts %}
+                    
+                    <!-- Individual preview wrapper for each blog post in the loop -->
+                    <div class="post-preview">
+                        
+                        <!-- Hyperlink linking the preview container to the specific dynamic post page URL based on post ID -->
+                        <a href="{{ url_for('show_post', index=post.id) }}">
+                            
+                            <!-- Display the blog post's title -->
+                            <h2 class="post-title">{{ post.title }}</h2>
+                            
+                            <!-- Display the blog post's subtitle -->
+                            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+                        </a>
+                        
+                        <!-- Metadata section showing information about the author and creation date -->
+                        <p class="post-meta">
+                            <!-- Author lead-in label -->
+                            Posted by
+                            <!-- Link to author details (placeholder link '#!') -->
+                            <a href="#!">{{ post.author }}</a>
+                            <!-- Post publication date -->
+                            on {{ post.date }}
+                        </p>
+                    </div>
+                    
+                    <!-- Horizontal line acting as a divider between consecutive blog post previews, styled with vertical margin utility -->
+                    <hr class="my-4" />
+                    
+                    <!-- End of the Jinja2 loop iterating over posts -->
+                    {% endfor %}
+
+                    <!-- Pager element to show buttons for navigating to older or page-2 posts -->
+                    <div class="d-flex justify-content-end mb-4">
+                        <!-- Navigation link for the next set of posts -->
+                        <a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- Include the common footer layout (footer.html) which wraps up the footer content, social links, and script tags -->
+{% include "footer.html" %}

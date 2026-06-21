@@ -1,0 +1,152 @@
+<!-- Include the common header layout (header.html) which handles navigation bar, imports, and metadata configurations -->
+{% include "header.html" %}
+
+<!-- Page Header representation showing the banner for the Contact screen, utilizing a background image -->
+<header
+  class="masthead"
+  style="background-image: url('{{ url_for('static', filename='assets/img/contact-bg.jpg') }}')"
+>
+  <!-- Layout grid container with relative positioning and side padding control -->
+  <div class="container position-relative px-4 px-lg-5">
+    
+    <!-- Centered row to horizontally align the column text content inside the header -->
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      
+      <!-- Responsive column constrained to readable widths across small to large resolutions -->
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        
+        <!-- Section layout wrapper containing page header title and subheading values -->
+        <div class="page-heading">
+          
+          <!-- Jinja conditional block: Check if 'msg_sent' evaluates to True (passed from Flask POST request handler) -->
+          {% if msg_sent: %}
+          
+          <!-- Heading displayed if form submission was successfully completed -->
+          <h1>Successfully sent your message</h1>
+          
+          <!-- If 'msg_sent' is False or not set (standard GET request loading the form) -->
+          {% else: %}
+          
+          <!-- Default heading displayed when visiting the page to send a message -->
+          <h1>Contact Me</h1>
+          
+          <!-- Close Jinja conditional check -->
+          {% endif %}
+          
+          <!-- Sub-headline description text -->
+          <span class="subheading">Have questions? I have answers.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main body container for the contact form layout, styled with bottom margin -->
+<main class="mb-4">
+  
+  <!-- Layout grid container for alignment and responsive side gutters -->
+  <div class="container px-4 px-lg-5">
+    
+    <!-- Flex row centering the form container column horizontally -->
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      
+      <!-- Column containing the content and submission form -->
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        
+        <!-- Instructional text directing users on how to complete the contact form -->
+        <p>
+          Want to get in touch? Fill out the form below to send me a message and
+          I will get back to you as soon as possible!
+        </p>
+        
+        <!-- Margin utility wrapper to space out form from preceding text -->
+        <div class="my-5">
+          
+          <!-- HTML Form targeting the '/contact' route via the POST method to submit contact data back to Flask backend -->
+          <form
+            id="contactForm"
+            name="sentMessage"
+            action="{{ url_for('contact') }}"
+            method="post"
+          >
+            
+            <!-- Float-label form container for the Name input field (Bootstrap design style) -->
+            <div class="form-floating">
+              <!-- Name text input field: required validation, matching ID and name attributes -->
+              <input
+                class="form-control"
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Enter your name..."
+                required
+              />
+              <!-- Floating label representing the Name field label -->
+              <label for="name">Name</label>
+            </div>
+            
+            <!-- Float-label form container for the Email input field -->
+            <div class="form-floating">
+              <!-- Email input field: standard email validation, required, matching ID and name attributes -->
+              <input
+                class="form-control"
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Enter your email..."
+                required
+              />
+              <!-- Floating label representing the Email address field label -->
+              <label for="email">Email address</label>
+            </div>
+            
+            <!-- Float-label form container for the Phone number input field -->
+            <div class="form-floating">
+              <!-- Phone/Telephone input field: type 'tel', required, matching ID and name attributes -->
+              <input
+                class="form-control"
+                id="phone"
+                name="phone"
+                type="tel"
+                placeholder="Enter your phone number..."
+                required
+              />
+              <!-- Floating label representing the Phone Number field label -->
+              <label for="phone">Phone Number</label>
+            </div>
+            
+            <!-- Float-label form container for the message text area -->
+            <div class="form-floating">
+              <!-- Textarea input field allowing multiline message entry: required, styled height of 12rem -->
+              <textarea
+                class="form-control"
+                id="message"
+                name="message"
+                placeholder="Enter your message here..."
+                required
+                style="height: 12rem"
+              ></textarea>
+              <!-- Floating label representing the Message field label -->
+              <label for="message">Message</label>
+            </div>
+            
+            <!-- Standard line break to space the submit button -->
+            <br />
+            
+            <!-- Submission button triggering form data validation and submission -->
+            <button
+              class="btn btn-primary text-uppercase"
+              id="submitButton"
+              type="submit"
+            >
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Include the common footer layout (footer.html) which closes body/html and loads JS libraries -->
+{% include "footer.html" %}

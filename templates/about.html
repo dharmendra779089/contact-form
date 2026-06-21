@@ -1,0 +1,71 @@
+<!-- Include the common header layout (header.html) which includes the HTML setup, page styles, and navbar layout -->
+{% include "header.html" %}
+
+<!-- Page Header representation showing the banner for the About Me screen, utilizing a background image -->
+<header
+  class="masthead"
+  style="background-image: url('{{ url_for('static', filename='assets/img/about-bg.jpg') }}')"
+>
+  <!-- Layout grid container with relative positioning and side padding control -->
+  <div class="container position-relative px-4 px-lg-5">
+    
+    <!-- Centered row to horizontally align the column text content inside the header -->
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      
+      <!-- Responsive column constrained to readable widths across small to large resolutions -->
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        
+        <!-- Section layout wrapper containing page header title and subheading values -->
+        <div class="page-heading">
+          <!-- Main page title heading -->
+          <h1>About Me</h1>
+          <!-- Sub-headline description text -->
+          <span class="subheading">This is what I do.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main body container for the about paragraph contents, styled with bottom margins -->
+<main class="mb-4">
+  
+  <!-- Layout grid container for alignment and responsive side gutters -->
+  <div class="container px-4 px-lg-5">
+    
+    <!-- Flex row centering the article text container horizontally -->
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      
+      <!-- Column containing the content list of text paragraphs -->
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        
+        <!-- Biography paragraph containing mock placeholder content -->
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe
+          nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis
+          sit soluta odio, adipisci quas excepturi maxime quae totam ducimus
+          consectetur?
+        </p>
+        
+        <!-- Additional profile description paragraph containing mock text details -->
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
+          praesentium recusandae illo eaque architecto error, repellendus iusto
+          reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in
+          officia voluptas voluptatibus, minus!
+        </p>
+        
+        <!-- Final personal profile description paragraph containing mock text details -->
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
+          consequuntur magnam, excepturi aliquid ex itaque esse est vero natus
+          quae optio aperiam soluta voluptatibus corporis atque iste neque sit
+          tempora!
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Include the common footer layout (footer.html) containing social media widgets and script blocks -->
+{% include "footer.html" %}

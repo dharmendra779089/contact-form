@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- Declare the document type as standard HTML5 for modern web browser compatibility -->
+<html lang="en">
+    <!-- Start of the HTML header block containing metadata, external stylesheet links, and page title -->
+    <head>
+        <!-- Specify the character encoding for the HTML document as UTF-8 (universal character set) -->
+        <meta charset="utf-8" />
+        
+        <!-- Enable responsive viewport scaling to ensure the website renders correctly on both mobile and desktop screens -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        
+        <!-- Placeholder meta tag for SEO description of the website content -->
+        <meta name="description" content="Clean Blog website build with Python Flask" />
+        
+        <!-- Placeholder meta tag representing the author or developer of the site -->
+        <meta name="author" content="" />
+        
+        <!-- Define the default title of the webpage displayed on browser tabs -->
+        <title>Clean Blog - Start Bootstrap Theme</title>
+        
+        <!-- Reference the site's shortcut favicon.ico file located in the static assets directory using Flask's url_for function -->
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
+        
+        <!-- Load the Font Awesome kit icon library asynchronously from their public CDN repository for icons -->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        
+        <!-- Include Google Fonts styles for 'Lora' to style serif header fonts and general elements -->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        
+        <!-- Include Google Fonts styles for 'Open Sans' for standard sans-serif navigation and body texts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        
+        <!-- Reference the core compiled Bootstrap custom theme CSS stylesheet file dynamically using Flask's static folder routing -->
+        <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+    </head>
+    
+    <!-- Begin the visible body section of the web page layout -->
+    <body>
+        <!-- Navigation bar component using Bootstrap classes. Expands on desktop view (lg), has light background theme, and custom JS identifier 'mainNav' -->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            
+            <!-- Standard layout container setting padding bounds across different screen resolutions -->
+            <div class="container px-4 px-lg-5">
+                
+                <!-- Home brand text logo directing users to the landing page -->
+                <a class="navbar-brand" href="{{ url_for('get_all_posts') }}">Start Bootstrap</a>
+                
+                <!-- Toggle button that triggers slide/collapse menu behavior on smaller (mobile) views -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <!-- Font Awesome Bars icon showing standard hamburger mobile menu bar icon -->
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <!-- Wrap navigation links in standard Bootstrap responsive collapsable container -->
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    
+                    <!-- Unordered list layout listing internal navigation link items styled to be aligned on the right on desktop views -->
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        
+                        <!-- Navigation list item linking to the home (get_all_posts) dynamic page route -->
+                        <li class="nav-item">
+                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ url_for('get_all_posts') }}">Home</a>
+                        </li>
+                        
+                        <!-- Navigation list item linking to the about static profile route -->
+                        <li class="nav-item">
+                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ url_for('about') }}">About</a>
+                        </li>
+                        
+                        <!-- Navigation list item linking to the contact form route -->
+                        <li class="nav-item">
+                            <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ url_for('contact') }}">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>

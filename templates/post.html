@@ -1,0 +1,60 @@
+<!-- Include the common header layout (header.html) which initiates the HTML document structures, header tags, and main site navbar -->
+{% include "header.html" %}
+
+<!-- Page Header representation showing the banner for the individual Blog Post, styling the background dynamically with the post's image URL from Python context -->
+<header class="masthead" style="background-image: url('{{ post.image_url }}')">
+    
+    <!-- Grid layout container centering elements and restricting wide margins -->
+    <div class="container position-relative px-4 px-lg-5">
+        
+        <!-- Row layout to center post heading elements horizontally inside the banner area -->
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            
+            <!-- Standard readable-width column container sizing across medium to large viewports -->
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                
+                <!-- Inner heading wrapper enclosing specific single-post headers and metadata info -->
+                <div class="post-heading">
+                    
+                    <!-- Dynamic variable binding rendering the specific post's title -->
+                    <h1>{{ post.title }}</h1>
+                    
+                    <!-- Dynamic variable binding rendering the specific post's subtitle -->
+                    <h2 class="subheading">{{ post.subtitle }}</h2>
+                    
+                    <!-- Meta information string displaying details on the author, link, and publication date of the post -->
+                    <span class="meta">
+                        <!-- Author label text prefix -->
+                        Posted by
+                        <!-- Link tag referencing author (placeholder link '#') -->
+                        <a href="#">{{ post.author }}</a>
+                        <!-- Date tag referencing the dynamic post date -->
+                        on {{ post.date }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Article wrapper for the primary paragraph content block representing the post body, styled with bottom margin -->
+<article class="mb-4">
+    
+    <!-- Container aligning grid layout alignment and responsive side spacing -->
+    <div class="container px-4 px-lg-5">
+        
+        <!-- Flex row centering the paragraph section horizontally -->
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            
+            <!-- Standard column constraining width to align with clean design aesthetics -->
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                
+                <!-- Dynamic paragraph content displaying the raw blog post content body from Python dictionary context -->
+                <p>{{ post.body }}</p>
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- Include the common footer layout (footer.html) which includes copyright information and final JavaScript file triggers -->
+{% include "footer.html" %}

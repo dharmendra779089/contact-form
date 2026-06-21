@@ -1,0 +1,4 @@
+# Flask: The core micro web framework library used to route HTTP endpoints and render template layouts.
+Flask==2.3.2
+# Requests: The HTTP library used to send REST requests to external APIs (e.g. npoint blog post source data).
+Requests==2.31.0
